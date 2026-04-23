@@ -7,9 +7,7 @@
 
 @font-face {
   font-family: "Poppins";
-  font-style: medium;
+  font-style: normal;
   font-weight: 500;
-  font-size: 16px;
   src: url("./fonts/Poppins-Medium.ttf") format("truetype");
-  transition: background-color 0.3s ease;
 }

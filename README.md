@@ -25,7 +25,7 @@ Spots is an interactive image-sharing platform where users can post and view pho
 
 ### Deployment Link
 
-- [Check out the live site here!](git@github.com:sway1love3-png/se_project_spots.git)
+- [Check out the live site here!](https://sway1love3-png.github.io/se_project_spots/)
 
 ### Project Pitch Video
 
