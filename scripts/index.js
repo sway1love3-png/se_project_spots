@@ -20,46 +20,64 @@ const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const cardsList = document.querySelector(".cards__list");
 
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  editProfileModal.classList.add("modal_is-opened");
+  openModal(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 });
 
 newPostBtn.addEventListener("click", function () {
-  newPostModal.classList.add("modal_is-opened");
+  openModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 });
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 }
 
 function createCard(imageUrl, caption) {
   const card = document.createElement("li");
   card.classList.add("card");
 
-  card.innerHTML = `
-    <img
-      src="${imageUrl}"
-      alt="${caption}"
-      class="card__image"
-    />
-    <div class="card__content">
-      <h2 class="card__title">${caption}</h2>
-      <button type="button" class="card__like-btn"></button>
-    </div>
-  `;
+  const cardImage = document.createElement("img");
+  cardImage.src = imageUrl;
+  cardImage.alt = caption;
+  cardImage.classList.add("card__image");
+
+  const cardContent = document.createElement("div");
+  cardContent.classList.add("card__content");
+
+  const cardTitle = document.createElement("h2");
+  cardTitle.classList.add("card__title");
+  cardTitle.textContent = caption;
+
+  const likeBtn = document.createElement("button");
+  likeBtn.type = "button";
+  likeBtn.classList.add("card__like-btn");
+
+  cardContent.appendChild(cardTitle);
+  cardContent.appendChild(likeBtn);
+
+  card.appendChild(cardImage);
+  card.appendChild(cardContent);
 
   return card;
 }
@@ -67,13 +85,16 @@ function createCard(imageUrl, caption) {
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
 
+  console.log("Image Link:", cardImageInput.value);
+  console.log("Title/Caption:", cardCaptionInput.value);
+
   const cardElement = createCard(cardImageInput.value, cardCaptionInput.value);
 
   cardsList.prepend(cardElement);
 
   newPostForm.reset();
 
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
