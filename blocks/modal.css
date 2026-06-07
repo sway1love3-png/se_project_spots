@@ -11,8 +11,8 @@
   align-items: center;
   opacity: 0;
   transition:
-    visibility 0s,
-    opacity 0.3s linear;
+    visibility 0.3s,
+    opacity 0.3s ease;
 }
 
 .modal_is-opened {
