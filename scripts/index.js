@@ -88,10 +88,6 @@ function handleNewPostSubmit(evt) {
   console.log("Image Link:", cardImageInput.value);
   console.log("Title/Caption:", cardCaptionInput.value);
 
-  const cardElement = createCard(cardImageInput.value, cardCaptionInput.value);
-
-  cardsList.prepend(cardElement);
-
   newPostForm.reset();
 
   closeModal(newPostModal);
