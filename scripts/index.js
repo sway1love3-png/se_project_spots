@@ -131,9 +131,16 @@ function handleEditProfileSubmit(evt) {
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
 
+  const name = cardCaptionInput.value.trim();
+  const link = cardImageInput.value.trim();
+
+  if (!name || !link) {
+    return;
+  }
+
   const newCardData = {
-    name: cardCaptionInput.value,
-    link: cardImageInput.value,
+    name: name,
+    link: link,
   };
 
   const cardElement = getCardElement(newCardData);

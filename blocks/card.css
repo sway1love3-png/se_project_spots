@@ -9,10 +9,15 @@
   display: block;
   border-radius: 8px;
   margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.card__image:hover {
+  opacity: 0.95;
+  transition: opacity 0.12s;
 }
 
 .card__delete-btn {
-  /* TODO - style */
   width: 32px;
   height: 32px;
   position: absolute;
@@ -26,6 +31,8 @@
 
 .card__delete-btn:hover {
   background-image: url(../images/delete-hover.svg);
+  opacity: 1;
+  transition: 0.4;
 }
 
 .card__content {
@@ -57,7 +64,7 @@
   height: 20px;
   border: none;
   background-color: transparent;
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .card__like-btn:hover {

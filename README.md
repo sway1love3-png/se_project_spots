@@ -1,4 +1,4 @@
-# Project 3: Spots
+# Project 8: Spots
 
 ### Overview
 
