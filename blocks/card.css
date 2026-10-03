@@ -12,11 +12,6 @@
   cursor: pointer;
 }
 
-.card__image:hover {
-  opacity: 0.95;
-  transition: opacity 0.12s;
-}
-
 .card__delete-btn {
   width: 32px;
   height: 32px;
